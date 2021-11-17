@@ -53,6 +53,7 @@ int main(int argc, char** argv) {
 	//Eg: ID:1, Name:Nguyen Thai, Age:23, Telephone:097432345, Rating:3, Salary:1550
 	while (std::getline(infile, line))
 	{
+		vector<string> vI;
 		//Get line by line
 		cout << line << endl;
 	    vector<string> v;
@@ -78,7 +79,11 @@ int main(int argc, char** argv) {
 		    {
 		      vInfo.push_back(info);
 		    }
-	        cout << vInfo[1] << endl;
+	        //cout << vInfo[1] << endl;
+	        vI.push_back(vInfo[1]);
+	    }
+	    for (int i = 0; i < vI.size(); i++) {
+	    	cout << vI[i] << endl;
 	    }
 	}
 	
