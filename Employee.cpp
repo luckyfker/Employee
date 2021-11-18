@@ -70,10 +70,10 @@ void Employee::setID(int id)
 	this->id = id;
 }
 
-void Employee::print(ostream &os) const
-{
-    os << "Type:" << type << ", ID:" << id << ", Name:" << name << ", Age:" << age << ", Telephone:" << telephone << ", Rating:" << rating << ",";
-}
+//void Employee::print(ostream &os) const
+//{
+//    os << "Type:" << type << ", ID:" << id << ", Name:" << name << ", Age:" << age << ", Telephone:" << telephone << ", Rating:" << rating << ",";
+//}
 
 void Employee::setTelephone (string telephone)
 {

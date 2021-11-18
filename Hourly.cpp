@@ -6,8 +6,9 @@ Hourly::Hourly() : Employee(0, "No name", 0, "No telephone", 0.0, NONE)
 	this->type = E_HOURLY;
 }
 
-Hourly::Hourly(const int &id, const string &name, const int &age, const string &telephone, const double &rating, TypeEmp type) : Employee(id, name, age, telephone, rating, NONE)
+Hourly::Hourly(const int &id, const string &name, const int &age, const string &telephone, const double &rating, const double &hour, TypeEmp type) : Employee(id, name, age, telephone, rating, NONE)
 {
+	this->hour = hour;
 	this->type = E_HOURLY;
 }
 void Hourly::setHour(double hour) {
@@ -25,4 +26,9 @@ ostream& operator<<(ostream& os, const Hourly &h)
 {
 	h.print(os);
 	return os;
+}
+
+void Hourly::print(ostream &os) const
+{
+    os << "Type:" << type << ", ID:" << id << ", Name:" << name << ", Age:" << age << ", Telephone:" << telephone << ", Rating:" << rating << ", Hours:" << hour << ",H" << endl;
 }

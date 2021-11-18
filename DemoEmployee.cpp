@@ -61,7 +61,6 @@ void DemoEmployee::printMenu(Task task)
 			cout << "4. Edit rating" << endl;
 			cout << "0. Exit" << endl;
 		default:
-			showError();
 			break;
 	}
 }
@@ -131,7 +130,6 @@ void DemoEmployee::doTask(int choice, Task task)
 				break;
 		}
 	} else {
-		
 	}
 }
 
@@ -189,9 +187,9 @@ void DemoEmployee::addEmployHourly()
 	cout << "Input age employee: "; cin >> age;
 	cout << "Input telephone employee: "; cin >> telephone;
 	cout << "Input rating employee: "; cin >> rating;
-	//cout << "Input hours employee: "; cin >> hours;
+	cout << "Input hours employee: "; cin >> hours;
 	
-	Employee *e = new Hourly(id, name, age, telephone, rating, E_HOURLY);
+	Employee *e = new Hourly(id, name, age, telephone, rating, hours, E_HOURLY);
 	
 	
 	empList.insert(e);
@@ -343,9 +341,6 @@ void DemoEmployee::readFromFile()
 	        //cout << vInfo[1] << endl;
 	        vI.push_back(vInfo[1]);
 	    }
-//	    for (int i = 0; i < vI.size(); i++) {
-//	    	cout << vI[i] << endl;
-//	    }
 	    if (vI[0] == "1") {
 	    	Employee *e = new Fulltime(stoi(vI[1]), vI[2], stoi(vI[3]), vI[4], stod(vI[5]), E_FULLTIME);
 	    	empList.insert(e);
@@ -353,11 +348,10 @@ void DemoEmployee::readFromFile()
 			Employee *e = new Parttime(stoi(vI[1]), vI[2], stoi(vI[3]), vI[4], stod(vI[5]), E_PARTTIME);
 			empList.insert(e);
 		} else if (vI[0] == "3") {
-			Employee *e = new Hourly(stoi(vI[1]), vI[2], stoi(vI[3]), vI[4], stod(vI[5]), E_HOURLY);
+			Employee *e = new Hourly(stoi(vI[1]), vI[2], stoi(vI[3]), vI[4], stod(vI[5]), stod(vI[6]), E_HOURLY);
 			empList.insert(e);
 		} else {
-			cout << "XXXX" << endl;
-			throw "Employee type is invalid!";
+			cout << "Employee type is invalid!" << endl;
 		}
 		
 	}

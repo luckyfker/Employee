@@ -20,3 +20,8 @@ ostream& operator<<(ostream& os, const Parttime &p)
 	p.print(os);
 	return os;
 }
+
+void Parttime::print(ostream &os) const
+{
+    os << "Type:" << type << ", ID:" << id << ", Name:" << name << ", Age:" << age << ", Telephone:" << telephone << ", Rating:" << rating << ",P" << endl;
+}

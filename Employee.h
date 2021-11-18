@@ -43,8 +43,8 @@ class Employee
 		void setID(int id);
 		void setTelephone(string telephone);
 		void setRating(double rating);
-	protected:
-		void print(ostream &os) const;
+	//protected:
+		virtual void print(ostream &os) const = 0;
 		
 };
 

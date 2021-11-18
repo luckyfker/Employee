@@ -26,3 +26,8 @@ ostream& operator<<(ostream& os, const Fulltime &f)
 	f.print(os);
 	return os;
 }
+
+void Fulltime::print(ostream &os) const
+{
+    os << "Type:" << type << ", ID:" << id << ", Name:" << name << ", Age:" << age << ", Telephone:" << telephone << ", Rating:" << rating << ",F" << endl;
+}
