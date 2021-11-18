@@ -25,6 +25,11 @@ ostream& operator<<(ostream& os, const Employee &e)
     return os;
 }
 
+TypeEmp Employee::getType() const
+{
+	return type;
+}
+
 int Employee::getID() const
 {
 	return id;
@@ -67,7 +72,7 @@ void Employee::setID(int id)
 
 void Employee::print(ostream &os) const
 {
-    os << "Type:" << type << ", ID:" << id << ", Name:" << name << ", Age:" << age << ", Telephone:" << telephone << ", Rating:" << rating << ", Salary:" << calculateSalary() << endl;
+    os << "Type:" << type << ", ID:" << id << ", Name:" << name << ", Age:" << age << ", Telephone:" << telephone << ", Rating:" << rating << ",";
 }
 
 void Employee::setTelephone (string telephone)

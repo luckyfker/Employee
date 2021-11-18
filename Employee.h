@@ -32,6 +32,7 @@ class Employee
 			
 		virtual double calculateSalary() const = 0;
 		virtual ~Employee();
+		TypeEmp getType() const;
 		int getID() const;
 		string getName() const;
 		int getAge() const;

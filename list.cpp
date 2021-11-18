@@ -17,7 +17,9 @@ Node::~Node()
     cout << "delete [" << emp->getID() << "]" << endl;
     if (next != NULL) {
     	delete next;
-    	delete emp;
+	}
+	if (emp != NULL) {
+		delete emp;
 	}
     // TODO: delete next if next != NULL
 }

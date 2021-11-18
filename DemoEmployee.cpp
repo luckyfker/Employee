@@ -189,9 +189,10 @@ void DemoEmployee::addEmployHourly()
 	cout << "Input age employee: "; cin >> age;
 	cout << "Input telephone employee: "; cin >> telephone;
 	cout << "Input rating employee: "; cin >> rating;
-	cout << "Input hours employee: "; cin >> hours;
+	//cout << "Input hours employee: "; cin >> hours;
 	
-	Employee *e = new Hourly(id, name, age, telephone, rating, hours, E_HOURLY);
+	Employee *e = new Hourly(id, name, age, telephone, rating, E_HOURLY);
+	
 	
 	empList.insert(e);
 }
@@ -250,6 +251,7 @@ void DemoEmployee::deleteEmployee()
 void DemoEmployee::searchEmployee()
 {
 	string name;
+	double salary = 0.0;
 	cout << "Enter name employee want to show information: "; cin.ignore(); getline(cin, name);
 	try {
 		find = empList.search(name);
@@ -296,8 +298,7 @@ void DemoEmployee::exitAndSave()
 			Node *n = empList.head;
 			while (n != NULL) {
 				//out << *n->emp->getID() << " " << *n->emp->getName() << " " << *n->emp->getAge() << " " << *n->emp->getTelephone() << " " << *n->emp->getAge() << endl; 
-				//out << *n->emp;
-				out << *(n)->emp;
+				out << *n->emp;
 				n = n->next;
 			}
 		}
@@ -313,6 +314,7 @@ void DemoEmployee::readFromFile()
 	//Eg: ID:1, Name:Nguyen Thai, Age:23, Telephone:097432345, Rating:3, Salary:1550
 	while (std::getline(infile, line))
 	{
+		vector<string> vI;
 		//Get line by line
 		cout << line << endl;
 	    vector<string> v;
@@ -338,9 +340,26 @@ void DemoEmployee::readFromFile()
 		    {
 		      vInfo.push_back(info);
 		    }
-	        cout << vInfo[1] << endl;
+	        //cout << vInfo[1] << endl;
+	        vI.push_back(vInfo[1]);
 	    }
-	    
+//	    for (int i = 0; i < vI.size(); i++) {
+//	    	cout << vI[i] << endl;
+//	    }
+	    if (vI[0] == "1") {
+	    	Employee *e = new Fulltime(stoi(vI[1]), vI[2], stoi(vI[3]), vI[4], stod(vI[5]), E_FULLTIME);
+	    	empList.insert(e);
+		} else if (vI[0] == "2") {
+			Employee *e = new Parttime(stoi(vI[1]), vI[2], stoi(vI[3]), vI[4], stod(vI[5]), E_PARTTIME);
+			empList.insert(e);
+		} else if (vI[0] == "3") {
+			Employee *e = new Hourly(stoi(vI[1]), vI[2], stoi(vI[3]), vI[4], stod(vI[5]), E_HOURLY);
+			empList.insert(e);
+		} else {
+			cout << "XXXX" << endl;
+			throw "Employee type is invalid!";
+		}
+		
 	}
 }
 
